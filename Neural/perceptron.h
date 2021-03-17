@@ -3,7 +3,7 @@
 
 #include "inqumath.h"
 
-const learningRate = 0.2;
+const double learningRate = 0.2;
 
 class Perceptron {
 private:

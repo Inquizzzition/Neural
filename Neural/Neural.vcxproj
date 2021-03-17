@@ -140,10 +140,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="inqumath.cpp" />
+    <ClCompile Include="network.cpp" />
     <ClCompile Include="perceptron.cpp" />
+    <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inqumath.h" />
+    <ClInclude Include="network.h" />
     <ClInclude Include="perceptron.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
