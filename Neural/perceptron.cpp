@@ -1,7 +1,7 @@
 #include "perceptron.h"
 
 Perceptron::Perceptron() :
-	sum(0), output(0), delta(0),
+	sum(0), output(0), delta(0), error(0),
 	inputs(std::vector<double>(2)),
 	weight(std::vector<double>(2))
 {
@@ -11,7 +11,7 @@ Perceptron::Perceptron() :
 }
 
 Perceptron::Perceptron(int nInputs) :
-	sum(0), output(0), delta(0),
+	sum(0), output(0), delta(0), error(0),
 	inputs(std::vector<double>(nInputs)),
 	weight(std::vector<double>(nInputs))
 {
@@ -20,18 +20,33 @@ Perceptron::Perceptron(int nInputs) :
 	offset = (double)(rand() % 1000 - 500) / 1000;
 }
 
-void Perceptron::secChangeWeight(double ideal) {
-
+void Perceptron::outLayerError(double ideal) {
+	error = ideal - output;
 }
 
-void Perceptron::changeWeight(double ideal) {
+void Perceptron::zeroError() {
+	error = 0;
+}
 
+void Perceptron::plusError(double er) {
+	error += er;
+}
+
+double Perceptron::gerError() {
+	return error;
+}
+
+void Perceptron::changeWeight() {
+	for (int i = 0; i < inputs.size(); i++) {
+		weight[i] += inputs[i] * error * dActivation(sum) * learningRate;
+	}
 }
 
 double Perceptron::process(std::vector<double> v) {
 	inputs = v;
 	sum = dot(inputs, weight) + offset;
-
+	output = activation(sum);
+	return output;
 }
 
 double Perceptron::getOutput() {
