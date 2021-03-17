@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <cmath>
+#include <random>
 
 double activation(double x);
 
