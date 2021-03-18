@@ -3,7 +3,7 @@
 
 #include "inqumath.h"
 
-const double learningRate = 0.2;
+const double learningRate = 0.3;
 
 class Perceptron {
 private:
@@ -15,13 +15,14 @@ private:
 	std::vector<double> weight;
 	std::vector<double> inputs;
 public:
-	Perceptron();
-	Perceptron(int nInputs);
+	int index;
+	Perceptron(int index);
+	Perceptron(int nInputs, int index);
+	double getWi(int i);
 	void outLayerError(double ideal);
 	void zeroError();
 	void plusError(double er);
 	double gerError();
-	void secChangeWeight();
 	void changeWeight();
 	double process(std::vector<double> v);
 	double getOutput();

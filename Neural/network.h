@@ -5,6 +5,7 @@
 
 class Network {
 private:
+	int inputSize;
 	std::vector<std::vector<Perceptron>> perceptrones;
 	std::vector<int> layersSize;
 public:
@@ -13,6 +14,7 @@ public:
 	void addLayer(int LayerSize);
 	void popLastLayer();
 	std::vector<double> go(std::vector<double> inputs);
+	void learning(std::vector<double> ideal);
 };
 
 #endif

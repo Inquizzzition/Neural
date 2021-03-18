@@ -5,6 +5,8 @@
 #include <cmath>
 #include <random>
 
+const double DELTA = 0.01;
+
 double activation(double x);
 
 double dActivation(double x);
